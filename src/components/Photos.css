@@ -1,0 +1,54 @@
+body {
+  margin: 0;
+  background-color: black;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.photos-container {
+  padding: 30px;
+  text-align: center;
+}
+
+.photos-container h1 {
+  margin-bottom: 25px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+.card {
+  border: 1px solid #444;
+  padding: 12px;
+}
+
+.color-box {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.color-box span {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+}
+
+.card p {
+  font-size: 13px;
+  color: #ddd;
+  text-align: left;
+}
+
+.status-screen {
+  height: 100vh;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
