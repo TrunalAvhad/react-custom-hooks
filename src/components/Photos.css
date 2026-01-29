@@ -1,54 +1,78 @@
-body {
+* {
+  box-sizing: border-box;
   margin: 0;
-  background-color: black;
-  color: white;
-  font-family: Arial, sans-serif;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
 }
 
 .photos-container {
   padding: 30px;
-  text-align: center;
+  background:black;
+  min-height: 100vh;
 }
 
 .photos-container h1 {
+  text-align: center;
+  font-size: 28px;
   margin-bottom: 25px;
+  color: #333;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 25px;
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 20px;
 }
+
 
 .card {
-  border: 1px solid #444;
-  padding: 12px;
+  background:black;
+  border-radius: 12px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: 0.3s ease;
+  cursor: pointer;
 }
 
-.color-box {
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.card img {
   width: 100%;
-  height: 200px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 10px;
-}
-
-.color-box span {
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 14px;
+  height: 180px;
+  object-fit: cover;
 }
 
 .card p {
-  font-size: 13px;
-  color: #ddd;
-  text-align: left;
+  padding: 10px 12px;
+  font-size: 14px;
+  color: #444;
 }
 
+.card p:last-child {
+  font-weight: bold;
+  color: #2563eb;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
 .status-screen {
-  height: 100vh;
-  background: black;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh; 
+  font-size: 24px;
+  font-weight: bold;
+  color: #2563eb;
 }

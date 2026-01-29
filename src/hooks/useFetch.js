@@ -1,40 +1,27 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 const useFetch = (url) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    let isMounted = true;
-
+  const fetchData = useCallback(async () => {
     setLoading(true);
-    setError(null);
-
-    fetch(url)
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error("Failed to fetch");
-        }
-        return res.json();
-      })
-      .then((data) => {
-        if (isMounted) {
-          setData(data);
-          setLoading(false);
-        }
-      })
-      .catch((err) => {
-        if (isMounted) {
-          setError(err.message);
-          setLoading(false);
-        }
-      });
-
-    return () => {
-      isMounted = false;
-    };
+    try {
+      const res = await fetch(url);
+      if (!res.ok) throw new Error("Failed to fetch");
+      const result = await res.json();
+      setData(result);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
   }, [url]);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
 
   return { data, loading, error };
 };
