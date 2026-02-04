@@ -2,7 +2,7 @@
 
 ## 🌐 Live Deployed Link 
 
-https://697b6864197ea9995efb47fb--friendly-custard-17a63b.netlify.app/
+https://69834a1f5197c53d99bcd27e--friendly-custard-17a63b.netlify.app/
 
 ## 📌 Problem Statement  
 The objective of this assignment is to create a custom React hook named `useFetch` to simplify fetching data from an API. The hook should manage loading and error states and return fetched data in a reusable way.
